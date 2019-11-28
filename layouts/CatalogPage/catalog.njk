@@ -32,6 +32,7 @@
             <aside class="main-aside">
                 <form class="main-aside__form" action="#" method="get">
                     <p class="form__name">фильтр:</p>
+
                     <fieldset class="form__price">
                         <legend>цена:</legend>
                         <input type="range">
@@ -39,35 +40,36 @@
 
                     <fieldset>
                         <legend>производители:</legend>
-                            <label class="main-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                                bosch
-                            </label>
 
-                            <label class="main-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                                интеркол
-                            </label>
+                        <label class="main-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                            bosch
+                        </label>
 
-                            <label class="main-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                                makita
-                            </label>
+                        <label class="main-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                            интеркол
+                        </label>
 
-                            <label class="main-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                                dewalt
-                            </label>
+                        <label class="main-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                            makita
+                        </label>
 
-                            <label class="main-checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox"></span>
-                                hitachi
-                            </label>
+                        <label class="main-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                            dewalt
+                        </label>
+
+                        <label class="main-checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox"></span>
+                            hitachi
+                        </label>
                     </fieldset>
 
                     <fieldset>
@@ -84,6 +86,7 @@
                             сетевые
                         </label>
                     </fieldset>
+
                     <input class="apply-filters" type="submit" value="показать">
                 </form>
             </aside>
@@ -93,6 +96,7 @@
             <section class="sorting">
                 <form class="sorting__form" action="#" method="get">
                     <legend>сортировка:</legend>
+
                     <fieldset class="sorting__toggles--type">
                         <label>
                             <input type="radio" name="sorting-toggle" checked>
@@ -121,11 +125,14 @@
                 <ul class="goods__list">
                     {% for item in MAIN_PAGE_DATA.products %}
                       <li class="item">
-                          <img class="item__img" src="{{ item.image }}" />
+                          <img class="item__img" src="{{ item.image }}" alt="image" />
+
                           <h6 class="item__title"> {{ item.title }} </h6>
+
                           <p class="item__price--old">
                               {{ item.prices.old }} Р.
                           </p>
+
                           <p class="item__price--new">
                               {{ item.prices.new }} Р.
                           </p>

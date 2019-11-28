@@ -21,15 +21,21 @@
 </head>
 
 <body>
-  {% block header %}
-      {% include 'layouts/basic/header/main.njk' %}
-  {% endblock %}
+  <div id="layout">
+    <div class="main">
+      {% block header %}
+        {% include 'layouts/basic/header/main.njk' %}
+      {% endblock %}
 
-  {% block body %}{% endblock %}
+      <div class="main-body">
+        {% block body %}{% endblock %}
+      </div>
+    </div>
 
-  {% block footer %}
+    {% block footer %}
       {% include 'layouts/basic/footer/main.njk' %}
-  {% endblock %}
+    {% endblock %}
+  </div>
 
   {% block application %}{% endblock %}
 </body>
