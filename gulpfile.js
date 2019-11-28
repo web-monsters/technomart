@@ -1,8 +1,10 @@
 'use strict';
+
 /**
   * @gulpfile {for practice}
   * compiles js and scss to css on files changes (dist folder);
   * use "gulp watch" command to start;
+  * // todo refactor
   */
 
 require('dotenv').config();
@@ -14,8 +16,8 @@ const concat = require('gulp-concat');
 const sass = require('gulp-sass');
 const del = require('del');
 
-function deleteDistFolder () {
-  return del('dist');
+function cleanDistFolder () {
+  return del('dist/*');
 }
 
 function startBrowserSync () {
@@ -78,10 +80,10 @@ function buildDeveloperPage () {
 
 // ---------------- BUILD PROJECT ---------------- //
 async function buildProject () {
-  build404page();
-  buildApp();
-  buildHomePage();
-  buildDeveloperPage();
+  await build404page();
+  await buildApp();
+  await buildHomePage();
+  await buildDeveloperPage();
   await buildCatalogPage();
 }
 
@@ -97,5 +99,5 @@ function watchFiles () {
   watch('dist/').on('change', browserSync.reload); // TODO optimize
 }
 
-exports.watch = series(deleteDistFolder, buildProject, watchFiles);
+exports.watch = series(cleanDistFolder, buildProject, watchFiles);
 exports.build = buildProject;
